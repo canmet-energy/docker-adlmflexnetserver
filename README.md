@@ -10,17 +10,10 @@ Usage
 To use this container, simply treat it as if you were calling _lmgrd_ directly.  The only caveat is that the container ALWAYS adds the '-z' flag so that _lmgrd_ will run in the Foreground. Otherwise, Docker believes the task is over, and the container will 'stop' immediately.
 
 The container does expect the user to map a local license file to within the __/var/flexlm__ directory.
-
+``
 docker run  --mac-address="your:mac:address:right:here:please" -h your.ip.adress.here  -v /var/flexlm/adsk_server.lic:/usr/local/flexlm/licenses/license.dat:ro -p 2080:2080 -p 27000-27009:27000-27009 --restart always canmet/docker-adlmflexnetserver
+``
 
- Alternatively, you can map a local folder containing multiple keys to the __/var/flexlm__ directory.
-
-    docker run -d --mac-address="[LICENSE_MAC_ADDRESS]" \
-    -h [LICENSE_HOSTNAME] \
-    -v [LOCAL_LICENSE_FOLDER_PATH]:/var/flexlm \
-    -p 2080:2080 -p 27000-27009:27000-27009 \
-    haysclark/adlmflexnetserver
-    -c /var/flexlm/license_file_1:/var/flexlm/license_file_2
 
 ### Logging
 

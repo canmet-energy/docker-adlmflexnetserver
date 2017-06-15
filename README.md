@@ -1,7 +1,7 @@
 # Installing Autodesk Software
 =================
 [![Docker Automated buil](https://img.shields.io/docker/automated/haysclark/adlmflexnetserver.svg?maxAge=2592000)](https://hub.docker.com/r/haysclark/adlmflexnetserver/builds/) [![Docker Stars](https://img.shields.io/docker/stars/haysclark/adlmflexnetserver.svg?maxAge=2592000)](https://hub.docker.com/r/haysclark/adlmflexnetserver/) [![](https://img.shields.io/docker/pulls/haysclark/adlmflexnetserver.svg)](https://hub.docker.com/r/haysclark/adlmflexnetserver 'DockerHub') [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-## Installing Software On CanmetEnergy Computers
+## Installing Software On CanmetENERGY Computers
 Simply run this shortcut and it will configure to install AutoCad, Revit and other supporting software and libraries.
 ```sh
 \\s-bcc-nas2\groups\Common Projects\HBS_software_development_archive\Autodesk\NRCan-CanmetENERGY

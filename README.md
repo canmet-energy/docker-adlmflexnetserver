@@ -2,16 +2,19 @@
 =================
 [![Docker Automated buil](https://img.shields.io/docker/automated/haysclark/adlmflexnetserver.svg?maxAge=2592000)](https://hub.docker.com/r/haysclark/adlmflexnetserver/builds/) [![Docker Stars](https://img.shields.io/docker/stars/haysclark/adlmflexnetserver.svg?maxAge=2592000)](https://hub.docker.com/r/haysclark/adlmflexnetserver/) [![](https://img.shields.io/docker/pulls/haysclark/adlmflexnetserver.svg)](https://hub.docker.com/r/haysclark/adlmflexnetserver 'DockerHub') [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 ## Installing Software On CanmetEnergy Computers
-Simply run this shortcut and it will configure to install AutoCad, Revit and other supports software and libraries.
+Simply run this shortcut and it will configure to install AutoCad, Revit and other supporting software and libraries.
 ```sh
 \\s-bcc-nas2\groups\Common Projects\HBS_software_development_archive\Autodesk\NRCan-CanmetENERGY
 ```
-This is all the end user should need to do. It should automatically point to the licence server.  That's it!
+This is all the end user should need to do. It should automatically point to the licence server.  
+
+That's it!
 
 If it does not contact to the licence server, talk to Meli to get the IP of Elmo and add this to your windows environment variable. The @ symbol is important.  If you do not know how to set a system variable contact IT support and have them add it. 
 ```sh
 ADSKFLEX_LICENSE_FILE @<the licence ip here>
 ```
+
 ## Installing AutoDesk licence server (System Admin of Licence server only!!!) 
 ## Requirements
 * A system running Docker 1.8 or above. (instruction are for Linux, but could be modified for Windows.)

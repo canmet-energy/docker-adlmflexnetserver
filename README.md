@@ -67,6 +67,13 @@ Once in bash run:
 ## Resources
 [Official Docs](https://knowledge.autodesk.com/customer-service/network-license-administration/get-ready-network-license/download-the-network-license-manager)
 
+FLEXnet feature codes for Autodesk 2020 products: [Not yet release](https://knowledge.autodesk.com/customer-service/network-license-administration/managing-network-licenses/interpreting-your-license-file/feature-codes)
+[FLEXnet feature codes for Autodesk 2019 products](https://knowledge.autodesk.com/customer-service/network-license-administration/managing-network-licenses/interpreting-your-license-file/feature-codes/2019-flexnet-feature-codes)
+[FLEXnet feature codes for Autodesk 2018 products](https://knowledge.autodesk.com/customer-service/network-license-administration/managing-network-licenses/interpreting-your-license-file/feature-codes/2018-flexnet-feature-codes)
+[FLEXnet feature codes for Autodesk 2017 products](https://knowledge.autodesk.com/customer-service/network-license-administration/managing-network-licenses/interpreting-your-license-file/feature-codes/2017-flexnet-feature-codes)
+[FLEXnet feature codes for Autodesk 2016 products](https://knowledge.autodesk.com/customer-service/network-license-administration/managing-network-licenses/interpreting-your-license-file/feature-codes/2016-flexnet-feature-codes)
+[FLEXnet feature codes for Autodesk 2015 products](https://knowledge.autodesk.com/customer-service/network-license-administration/managing-network-licenses/interpreting-your-license-file/feature-codes/2015-flexnet-feature-codes)
+
 ## Supports
 Applies to Autodesk:
 

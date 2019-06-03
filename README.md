@@ -69,12 +69,12 @@ Once in bash run:
 ### Supports
 Applies to Autodesk:
 
-    - Nastran 2015~>2019
-    - Infrastructure Map Server 2014~>2019
-    - Maya 2014~>2019
-    - Moldflow Insight 2015~>2019
-    - MotionBuilder 2014~>2019
-    - Mudbox 2014~>2019
-    - Softimage 2014~>2016
-    - VRED Design 2014
-    - VRED Products 2017~>2019
+- Nastran 2015~>2019
+- Infrastructure Map Server 2014~>2019
+- Maya 2014~>2019
+- Moldflow Insight 2015~>2019
+- MotionBuilder 2014~>2019
+- Mudbox 2014~>2019
+- Softimage 2014~>2016
+- VRED Design 2014
+- VRED Products 2017~>2019

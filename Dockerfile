@@ -1,11 +1,13 @@
-FROM centos:centos6
-MAINTAINER hays.clark@gmail.com
+FROM centos:centos7
+MAINTAINER sfeuga@member.fsf.org
 
 #########################################
 ##             CONSTANTS               ##
 #########################################
 # path for Network Licence Manager
-ARG NLM_URL=http://download.autodesk.com/us/support/files/network_license_manager/11_13_1_2_v2/Linux/nlm11.13.1.2_ipv4_ipv6_linux64.tar.gz
+ARG NLM_URL=https://knowledge.autodesk.com/sites/default/files/file_downloads/
+ARG NLM_FILE=nlm11.16.2.0_ipv4_ipv6_linux64.tar.gz
+ARG MD5_SUM=b97dafa3a2b748e54951d8ac0f06bd44
 # path for temporary files
 ARG TEMP_PATH=/tmp/flexnetserver
 
@@ -26,7 +28,9 @@ RUN yum update -y && yum install -y \
     yum clean all
 
 RUN mkdir -p ${TEMP_PATH} && cd ${TEMP_PATH} && \
-    wget --progress=bar:force ${NLM_URL} && \
+    wget --progress=bar:force ${NLM_URL}${NLM_FILE} && \
+    echo "${MD5_SUM} ${NLM_FILE}" > ${NLM_FILE}.md5 && \
+    md5sum -c ${NLM_FILE}.md5 && \
     tar -zxvf *.tar.gz && rpm -vhi *.rpm && \
     rm -rf ${TEMP_PATH}
 

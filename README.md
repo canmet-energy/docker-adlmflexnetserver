@@ -1,7 +1,7 @@
-# Installing Autodesk Software
+# Installing The Foundry Software
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-## Installing AutoDesk licence server
+## Installing The Foundry licence server
 ### Requirements
 * A system running Docker 1.8 or above. (instruction are for Linux, but could be modified for Windows.)
 * Ensure that ports 2080 and 27000-27009 are open to the LAN on this system and not being used by another service.
@@ -16,32 +16,21 @@ You will need the name or IP of the host system, and the MAC address of your eth
  
  This will produce a list of all network interfaces. Ignore interfaces name *lo* and *docker* You should find a interface starting with an 'e'. This is a sample of the network interface used on Dell 7910
  ```sh
- enp0s25   Link encap:Ethernet  HWaddr X:X:X:X:X:X  
-          inet addr:132.156.X.X  Bcast:132.156.X.X  Mask:255.X.X.X
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:517016 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:786 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
-          RX bytes:35140345 (35.1 MB)  TX bytes:76697 (76.6 KB)
-          Interrupt:20 Memory:ef600000-ef620000 
+ enp58s0f1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.3.5  netmask 255.255.255.0  broadcast 192.168.3.255
+        ether d4:6d:6d:ad:27:c6  txqueuelen 1000  (Ethernet)
  ```
  
- The *inet addr* is the IP address and the *HWaddr* is MAC address.
+ The *inet X.X.X.X* is the IP address and the *ether xx:xx:xx:xx:xx:xx* is MAC address.
  ### Generate Licence File
- 1. Sign into https://accounts.autodesk.com
- 2. Click on the 'Management' tab. 
- 3. Click on the 'Generate Licence File' on the left naviagtion bar.
- 4. Select "Single Server'
- 5. Add the IP and Mac Address 
- 6. Click the + sign to add software to the licence
- 7. Get the licence file however you wish (email, copy, etc) 
- 8. rename/create the file to be named 'adsk_server.lic'
- 9. Save this file to your host in the /var/flexlm/adsk_server.lic
+ 1. rename/create the file to be named 'the_foundry_server.lic'
+ 2. Save this file to your host in the /var/flexlm/the_foundry_server.lic
  
 ### Create Docker Container and start service. 
 Type the following command. 
 ```sh
-docker run -d  --mac-address="<Your:Mac:address:separated:by:colons>" -h <Your IP Address> -v /var/flexlm/adsk_server.lic:/usr/local/flexlm/licenses/license.dat:ro -p 2080:2080 -p 27000-27009:27000-27009 --restart=always canmet/docker-adlmflexnetserver
+docker build -t flexlmnetserver .
+docker run -d  --mac-address="$(ifconfig enp58s0f1 | grep -e [a-z0-9][a-z0-9]:[a-z0-9][a-z0-9]:[a-z0-9][a-z0-9]:[a-z0-9][a-z0-9]:[a-z0-9][a-z0-9]:[a-z0-9][a-z0-9] | awk -F " " '{print $2}')" -h $(ifconfig enp58s0f1 | grep "inet " | awk -F " " '{print $2}') -v /var/flexlm/the_foundry_server.lic:/usr/local/flexlm/licenses/license.dat:ro -p 2080:2080 -p 27000-27009:27000-27009 --restart=always --name flexlmnetserver
 ```
 This will now launch the licence server 
 

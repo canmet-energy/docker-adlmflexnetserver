@@ -25,6 +25,7 @@ You will need the name or IP of the host system, and the MAC address of your eth
           RX bytes:35140345 (35.1 MB)  TX bytes:76697 (76.6 KB)
           Interrupt:20 Memory:ef600000-ef620000 
  ```
+ 
  The *inet addr* is the IP address and the *HWaddr* is MAC address.
  ### Generate Licence File
  1. Sign into https://accounts.autodesk.com
@@ -53,7 +54,7 @@ Docker's built-in logging functionality will collect the stdout/stderr generated
 
 Thus it's recommended you do NOT use the '-l' flag to log to a file, doing so will cause your Docker logs to be empty.  Additionally, avoid using the '-t' flag when using the 'run' command, enabling TTL support will cause extra line breaks in your Docker logs.
 
-### Troubleshooting
+## Troubleshooting
 
 If you are unsure if the server is running correctly, you can log into the container.
 
@@ -63,10 +64,10 @@ Once in bash run:
 
     lmutil lmstat -a -c [LICENSE_PATH]
 
-### Resources
-[Official Docs](https://knowledge.autodesk.com/search-result/caas/downloads/content/autodesk-network-license-manager-for-linux.html)
+## Resources
+[Official Docs](https://knowledge.autodesk.com/customer-service/network-license-administration/get-ready-network-license/download-the-network-license-manager)
 
-### Supports
+## Supports
 Applies to Autodesk:
 
 - Nastran 2015~>2019

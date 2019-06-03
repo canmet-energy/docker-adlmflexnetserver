@@ -5,11 +5,10 @@ MAINTAINER sfeuga@member.fsf.org
 ##             CONSTANTS               ##
 #########################################
 # path for Network Licence Manager
-ARG NLM_URL=https://knowledge.autodesk.com/sites/default/files/file_downloads/
-ARG NLM_FILE=nlm11.16.2.0_ipv4_ipv6_linux64.tar.gz
-ARG MD5_SUM=b97dafa3a2b748e54951d8ac0f06bd44
+ARG FLT_URL=https://s3.amazonaws.com/thefoundry/tools/FLT/7.3v2/
+ARG FLT_FILE=FLT7.3v2-linux-x86-release-64.tgz
 # path for temporary files
-ARG TEMP_PATH=/tmp/flexnetserver
+ARG TEMP_PATH=/tmp/FLT
 
 #########################################
 ##        ENVIRONMENTAL CONFIG         ##
@@ -28,15 +27,13 @@ RUN yum update -y && yum install -y \
     yum clean all
 
 RUN mkdir -p ${TEMP_PATH} && cd ${TEMP_PATH} && \
-    wget --progress=bar:force ${NLM_URL}${NLM_FILE} && \
-    echo "${MD5_SUM} ${NLM_FILE}" > ${NLM_FILE}.md5 && \
-    md5sum -c ${NLM_FILE}.md5 && \
-    tar -zxvf *.tar.gz && rpm -vhi *.rpm && \
-    rm -rf ${TEMP_PATH}
+    wget --progress=bar:force ${FLT_URL}${FLT_FILE} && \
+    tar -zxvf ${FLT_FILE} && cd FLT* && ./install.sh &&
+    cd && rm -rf ${TEMP_PATH}
 
-# lmadmin is required for -2 -p flag support
-RUN groupadd -r lmadmin && \
-    useradd -r -g lmadmin lmadmin
+# fltadmin is required for -2 -p flag support
+RUN groupadd -r fltadmin && \
+    useradd -r -g fltadmin fltadmin
 
 #########################################
 ##              VOLUMES                ##
@@ -50,7 +47,7 @@ EXPOSE 2080
 EXPOSE 27000-27009
 
 # do not use ROOT user
-USER lmadmin
+USER fltadmin
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 # no CMD, use container as if 'lmgrd'

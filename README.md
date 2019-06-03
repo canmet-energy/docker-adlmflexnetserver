@@ -51,7 +51,7 @@ If you are unsure if the server is running correctly, you can log into the conta
 
 Once in bash run: 
 
-    lmutil lmstat -a -c [LICENSE_PATH]
+    cd /usr/local/foundry/LicensingTools7.3 && ./FoundryLicenseUtility -s status
 
 ## Resources
 [Official Docs](https://www.foundry.com/licensing)
